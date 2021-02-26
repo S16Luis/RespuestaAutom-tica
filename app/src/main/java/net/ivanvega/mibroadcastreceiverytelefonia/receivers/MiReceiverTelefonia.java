@@ -3,7 +3,9 @@ package net.ivanvega.mibroadcastreceiverytelefonia.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.provider.Telephony;
+import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -18,11 +20,8 @@ public class MiReceiverTelefonia extends BroadcastReceiver {
         String log = sb.toString();
         Log.d(TAG, log);
         Toast.makeText(context, log, Toast.LENGTH_LONG).show();
-
         if(intent.getAction().equals(Telephony.Sms.Intents.SMS_RECEIVED_ACTION)){
             Toast.makeText(context, "Me llego un mensaje", Toast.LENGTH_LONG).show();
-            
-            //RECUPERAR EL MENSAJE RECIBIDO
             Bundle bundle = intent.getExtras();
             SmsMessage[] smss;
             String str;
@@ -38,9 +37,6 @@ public class MiReceiverTelefonia extends BroadcastReceiver {
                     Toast.makeText(context, str, Toast.LENGTH_LONG).show();
                 }
             }
-            
         }
-
     }
-
 }

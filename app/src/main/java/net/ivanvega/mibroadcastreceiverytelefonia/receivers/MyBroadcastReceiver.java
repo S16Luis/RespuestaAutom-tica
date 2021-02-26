@@ -8,8 +8,6 @@ import android.widget.Toast;
 
 import net.ivanvega.mibroadcastreceiverytelefonia.R;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class MyBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = "MyBroadcastReceiver";
         @Override
@@ -32,3 +30,4 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             Toast.makeText(context, log, Toast.LENGTH_LONG).show();
         }
 }
+
