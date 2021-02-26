@@ -3,6 +3,8 @@
     package="net.ivanvega.mibroadcastreceiverytelefonia">
 
     <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -18,8 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver android:name=".receivers.MyBroadcastReceiver"  android:exported="true">
+        <receiver android:name=".receivers.MyReceiverLlamadas"  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"></action>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+                <action android:name="net.ivanvega.mibroadcastreceiverytelefonia.MIBROACASTLLAMADAS"></action>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receivers.MyBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.INPUT_METHOD_CHANGED" />
@@ -28,8 +36,6 @@
 
             </intent-filter>
         </receiver>
-
-
         <receiver android:name=".receivers.MiReceiverTelefonia">
 
         </receiver>
